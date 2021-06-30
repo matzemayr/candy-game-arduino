@@ -161,10 +161,10 @@ void drawMainMenu(){
 
 void drawGameMenu(){
   lcd.setCursor(0, 0);
-  lcd.print(String(scorePlayer1) + " Press -> start");
+  lcd.print("  Press: start ");
 
   lcd.setCursor(0, 1);
-  lcd.print(String(scorePlayer2) + " Hold  -> menu");
+  lcd.print(String(scorePlayer1) + " Hold: menu   " + String(scorePlayer2));
     
   if(buttonValue + touchValue > 0 && !initialPressed){
     pressMillis++;
@@ -204,10 +204,10 @@ void game1Update(){
     
     //always show score during game
     lcd.setCursor(0, 0);
-    lcd.print(scorePlayer1);
+    lcd.print(String(scorePlayer1) + "            " + String(scorePlayer2));
 
-    lcd.setCursor(0, 1);
-    lcd.print(scorePlayer2);
+    //lcd.setCursor(0, 1);
+    //lcd.print(scorePlayer2);
 
     if(countDownState == 1 && (millis() > (lastStepMillis + randomDelay))){
       setColor("green");
@@ -317,10 +317,10 @@ void game2Update(){
 
 void game2NextRound(){
   releaseCandy();
-  int game2RandomNumber = 0;
-  int game2DisplayNumber = 0;
-  int game2Player1Number = 0;
-  int game2Player2Number = 0;
+  game2RandomNumber = 0;
+  game2DisplayNumber = 0;
+  game2Player1Number = 0;
+  game2Player2Number = 0;
   pressMillis = 0;
   lastStepMillis = millis();
   pressMillis = 0;
